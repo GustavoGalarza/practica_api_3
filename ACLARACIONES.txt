@@ -1,0 +1,70 @@
+*************Aclaraciones del Programa: Juego de Selección***********
+Uso de ECMAScript 6
+Este programa utiliza características modernas de ECMAScript 6 (ES6) para mejorar la legibilidad y eficiencia del código JavaScript. A continuación se destacan algunas de las principales características usadas:
+
+*****Constantes y Variables:
+const y let se utilizan en lugar de var para declarar variables. const se usa para valores que no deben cambiar, y let para valores que pueden cambiar.
+
+*****Funciones Flecha:
+Se emplearon para definir funciones de manera concisa. Las funciones flecha simplifican la sintaxis y mantienen el contexto de this correcto.
+ejemplo:  const fetchAndUpdateImages = async (url, cardIds, dataParser) => {
+    // Código
+};
+*****Plantillas Literales:
+Se usaron para construir cadenas de texto que incluyen variables. Esto permite una sintaxis más limpia y legible para crear URLs y mensajes.
+const url = `${marvelApiUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+Desestructuración:
+Se aplicó para extraer propiedades de objetos de manera más clara. Por ejemplo, al procesar los datos obtenidos de las APIs.
+const { name, image } = items[randomIndex];
+
+
+Promesas y async/await:
+Se usaron para manejar operaciones asíncronas. Las promesas simplifican el manejo de operaciones asincrónicas, y async/await se emplearon para hacer el código más legible y evitar el anidamiento de callbacks.
+const updateMarvelCards = async () => {
+    const ts = Date.now();
+    const hash = generateMarvelHash(ts);
+    const url = `${marvelApiUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    await fetchAndUpdateImages(url, marvelCards, data => 
+        data.data.results.map(character => ({
+            name: character.name,
+            image: `${character.thumbnail.path}.${character.thumbnail.extension}`
+        }))
+    );
+};
+
+
+
+APIs Utilizadas
+1. API de Marvel
+URL: https://gateway.marvel.com:443/v1/public/characters
+Uso: Proporciona datos sobre personajes de Marvel Comics.
+Implementación:
+-*Se requiere una clave pública y privada para autenticarse.
+-*Se genera un hash MD5 con el timestamp, la clave pública y privada.
+-*Se realiza una solicitud a la API para obtener una lista de personajes.
+-*Se actualizan las tarjetas con las imágenes y nombres de los personajes obtenidos.
+2. API de Harry Potter
+URL: https://hp-api.herokuapp.com/api/characters
+Uso: Ofrece datos sobre personajes del universo de Harry Potter.
+Implementación:
+-*Se realiza una solicitud a la API para obtener información de personajes.
+-*Se actualizan las tarjetas con las imágenes (si están disponibles) y los nombres de los personajes.
+3. API de Pokémon
+URL: https://pokeapi.co/api/v2/pokemon?limit=100
+Uso: Proporciona datos sobre Pokémon.
+Implementación:
+-*Se realiza una solicitud a la API para obtener una lista de Pokémon.
+-*Se actualizan las tarjetas con las imágenes y nombres de los Pokémon obtenidos.
+
+Implementación de la Selección y el Modal
+Selección de Tarjetas:
+
+Se manejan eventos de clic en las tarjetas para marcar la selección.
+Solo una tarjeta por categoría puede estar seleccionada en un momento dado.
+Una vez que se seleccionan todas las tarjetas necesarias, el juego muestra el modal automáticamente.
+Modal:
+
+Se utiliza para mostrar los resultados de las selecciones.
+Se actualizan los textos del modal con los nombres de los personajes o Pokémon seleccionados.
+El modal se muestra cuando todas las categorías están completas y se oculta al hacer clic en el botón de cierre.

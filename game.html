@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Juego de Selección</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>¿Con quién te casarías, con quién dormirías y a quién te comerías?</h1>
+    </header>
+
+    <main>
+        <section id="marvel-section">
+            <label for="marvel-selection">¿Con quién te casarías?</label>
+            <button id="update-marvel">Actualizar</button>
+            <div class="cards-container" id="marvel-cards">
+                <!-- Tarjetas para Marvel -->
+                <div class="card" id="marvel-card1">
+                    <img src="" alt="Marvel Character 1" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+                <div class="card" id="marvel-card2">
+                    <img src="" alt="Marvel Character 2" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+                <div class="card" id="marvel-card3">
+                    <img src="" alt="Marvel Character 3" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hp-section">
+            <label for="hp-selection">¿Con quién dormirías?</label>
+            <button id="update-hp">Actualizar</button>
+            <div class="cards-container" id="hp-cards">
+                <!-- Tarjetas para Harry Potter -->
+                <div class="card" id="hp-card1">
+                    <img src="" alt="HP Character 1" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+                <div class="card" id="hp-card2">
+                    <img src="" alt="HP Character 2" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+                <div class="card" id="hp-card3">
+                    <img src="" alt="HP Character 3" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pokemon-section">
+            <label for="pokemon-selection">¿A quién te comerías?</label>
+            <button id="update-pokemon">Actualizar</button>
+            <div class="cards-container" id="pokemon-cards">
+                <!-- Tarjetas para Pokémon -->
+                <div class="card" id="pokemon-card1">
+                    <img src="" alt="Pokemon 1" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+                <div class="card" id="pokemon-card2">
+                    <img src="" alt="Pokemon 2" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+                <div class="card" id="pokemon-card3">
+                    <img src="" alt="Pokemon 3" class="card-image">
+                    <p class="card-name"></p>
+                </div>
+            </div>
+        </section>
+
+        <button id="show-result">Mostrar Resultado</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Juego Divertido. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Resultados</h2>
+            <p id="marriage-result"></p>
+            <p id="sleep-result"></p>
+            <p id="eat-result"></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
